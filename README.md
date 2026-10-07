@@ -16,7 +16,11 @@ The system combines:
 
 ## Dataset
 
-The project uses the AI4I 2020 Predictive Maintenance Dataset containing 10,000 equipment records.
+This project uses the **AI4I 2020 Predictive Maintenance Dataset** from the UCI Machine Learning Repository.
+
+The dataset contains **10,000 equipment records** and is a synthetic dataset designed to reflect real predictive maintenance data encountered in industry.
+
+**Official Dataset:** [AI4I 2020 Predictive Maintenance Dataset](https://archive.ics.uci.edu/dataset/601/ai4i%2B2020%2Bpredictive%2Bmaint)
 
 The machine learning model uses five operational features:
 
@@ -32,6 +36,8 @@ Target:
 - `1` — Machine failure
 
 The dataset is highly imbalanced, with machine failures representing a small minority of the observations.
+
+> To run the notebook, download `ai4i2020.csv` from the official UCI repository and upload it to the Google Colab session before executing the notebook.
 
 ## Machine Learning Workflow
 
