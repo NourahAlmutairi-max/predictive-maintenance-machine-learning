@@ -118,3 +118,13 @@ An interactive Power BI dashboard was developed to visualize:
 The dataset provides a useful environment for developing and evaluating the machine learning pipeline, but it contains a limited number of failure cases and operational features.
 
 Future work could include larger equipment-specific datasets, additional sensor measurements, time-series data, and further model optimization for real industrial environments.
+
+## Dashboard
+
+### Predictive Maintenance Dashboard
+
+![Predictive Maintenance Dashboard](predictive_maintenance_dashboard.png)
+
+### Machine Learning Model Evaluation
+
+![Machine Learning Model Evaluation](model_evaluation_dashboard.png)
