@@ -58,25 +58,36 @@ The final Random Forest model achieved:
 
 The optimized classification threshold was **0.30**.
 
-Because the dataset is highly imbalanced, Precision, Recall, F1 Score, and PR-AUC were considered alongside Accuracy.
+The final confusion matrix results were:
+
+| Outcome | Count |
+|---|---:|
+| True Negative | 1,435 |
+| True Positive | 34 |
+| False Negative | 17 |
+| False Positive | 14 |
+
+Because the dataset is highly imbalanced, Precision, Recall, F1 Score, and PR-AUC were considered alongside Accuracy to provide a more informative evaluation of performance on the minority failure class.
 
 ## Anomaly Detection
 
-Isolation Forest was used to identify unusual equipment operating conditions.
+Isolation Forest was used as an unsupervised anomaly detection method to identify unusual equipment operating conditions.
 
 On the test set:
 
-- 318 records were classified as anomalies
-- 1,182 records were classified as normal
-- Anomaly rate: 21.20%
+- **318** records were classified as anomalies
+- **1,182** records were classified as normal
+- **Anomaly Rate:** 21.20%
 
 The observed failure rate was approximately **11.95%** among anomalous records compared with approximately **1.10%** among normal records.
 
-Anomaly detection identifies unusual operating patterns and should not be interpreted as directly predicting or proving the physical cause of failure.
+These results indicate that unusual operating patterns identified by Isolation Forest were associated with a higher observed failure rate.
 
-## Explainable AI
+Anomaly detection identifies unusual operating patterns and should not be interpreted as directly predicting or proving the physical cause of equipment failure.
 
-SHAP was used to understand how individual operational features influenced the Random Forest predictions.
+## Explainable AI with SHAP
+
+SHAP (SHapley Additive exPlanations) was used to understand how individual operational features influenced the Random Forest predictions.
 
 Global feature importance based on mean absolute SHAP values:
 
@@ -88,7 +99,9 @@ Global feature importance based on mean absolute SHAP values:
 | Air Temperature [K] | 0.0713 |
 | Process Temperature [K] | 0.0377 |
 
-SHAP explains the behavior of the machine learning model and does not establish physical causation.
+For each equipment record, SHAP was also used to identify the feature with the strongest contribution to the prediction and whether that contribution increased or decreased the predicted failure risk.
+
+SHAP explains the behavior of the machine learning model and should not be interpreted as establishing physical causation.
 
 ## Technologies
 
@@ -113,14 +126,6 @@ An interactive Power BI dashboard was developed to visualize:
 - Model evaluation metrics
 - SHAP prediction drivers
 
-## Limitations and Future Work
-
-The dataset provides a useful environment for developing and evaluating the machine learning pipeline, but it contains a limited number of failure cases and operational features.
-
-Future work could include larger equipment-specific datasets, additional sensor measurements, time-series data, and further model optimization for real industrial environments.
-
-## Dashboard
-
 ### Predictive Maintenance Dashboard
 
 ![Predictive Maintenance Dashboard](predictive_maintenance_dashboard.png)
@@ -128,3 +133,9 @@ Future work could include larger equipment-specific datasets, additional sensor 
 ### Machine Learning Model Evaluation
 
 ![Machine Learning Model Evaluation](model_evaluation_dashboard.png)
+
+## Limitations and Future Work
+
+The dataset provides a useful environment for developing and evaluating the machine learning pipeline, but it contains a limited number of failure cases and a relatively small set of operational features.
+
+Future work could include validation on larger equipment-specific datasets, additional sensor measurements, time-series data, and further model optimization for real industrial environments.
